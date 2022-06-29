@@ -1,7 +1,19 @@
 import './reset.css'
 import './style.css'
 
-let state = {
+type storeItem = {
+  id: number;
+  name: string;
+  price: number;
+  inCart: number;
+  image: string;
+}
+
+type State = {
+  storeItems: storeItem[]
+}
+
+let state: State = {
   storeItems: [
     {
       id: 1,
@@ -76,7 +88,7 @@ let state = {
   ]
 }
 
-function getItemImagePath(item) {
+function getItemImagePath(item: storeItem) {
   let id = String(item.id).padStart(3, '0')
   return `assets/icons/${id}-${item.name}.svg`
 }
